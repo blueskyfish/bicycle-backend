@@ -2,11 +2,11 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ScheduleModule } from '@nestjs/schedule';
 import * as path from 'path';
 import { buildDatabaseConfig, EnvName } from './app.config';
-import { AppAuthModule } from './auth/auth.module';
+import { BikeAuthModule } from './auth/auth.module';
 import { AuthMiddleware } from './auth/user';
-import { AppCommonModule } from './common/common.module';
+import { BikeCommonModule } from './common/common.module';
 import { fromEnv } from './common/env';
-import { AppControllerModule } from './controller/controller.module';
+import { BikeControllerModule } from './controller/controller.module';
 import { UserController } from './controller/user.controller';
 
 /**
@@ -16,18 +16,18 @@ import { UserController } from './controller/user.controller';
   imports: [
     ScheduleModule.forRoot(),
 
-    AppCommonModule.forRoot({
+    BikeCommonModule.forRoot({
       // database config
       db: buildDatabaseConfig(),
       // setting config
       appHome: fromEnv(EnvName.AppHome).asString || path.normalize(path.join(__dirname, '..')),
     }),
-    AppAuthModule.forRoot({
+    BikeAuthModule.forRoot({
       priKeyFilename: fromEnv(EnvName.AuthPriFile).asString,
       pubKeyFilename: fromEnv(EnvName.AuthPubFile).asString,
       digestSecret: fromEnv(EnvName.DigestSecret).asString,
     }),
-    AppControllerModule,
+    BikeControllerModule,
   ],
 })
 export class AppModule implements NestModule {

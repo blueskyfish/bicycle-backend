@@ -1,8 +1,6 @@
 import { DynamicModule, Logger, Module } from '@nestjs/common';
 import { createDatabaseService, ICommonConfig } from './common.config';
-import { DbService } from './database/db.service';
-import { MysqlConfig, MysqlService } from './database/mysql';
-import { SqliteConfig, SqliteService } from './database/sqlite';
+import { DbService } from './database';
 import { SettingConfig } from './setting/setting.config';
 import { SettingService } from './setting/setting.service';
 
@@ -19,8 +17,7 @@ const commonServices: any[] = [
  * **NOTE**: This module is global. Only import **once** in the backend at the {@link AppModule}.
  */
 @Module({})
-export class AppCommonModule {
-  // TODO: "App" => Rename the shortcut with your project specifications
+export class BikeCommonModule {
 
   /**
    * Add the database configuration and provides the services.
@@ -45,7 +42,7 @@ export class AppCommonModule {
 
     return {
       global: true,
-      module: AppCommonModule,
+      module: BikeCommonModule,
       providers: [
         ...commonProviders,
         ...commonServices,

@@ -25,14 +25,13 @@ const authServices: any[] = [
  * Authorization and Authentication.
  */
 @Module({})
-export class AppAuthModule {
-  // TODO: "App" => Rename the shortcut with your project specifications
+export class BikeAuthModule {
 
   static forRoot(config: IAuthConfig): DynamicModule {
 
     return {
       global: true,
-      module: AppAuthModule,
+      module: BikeAuthModule,
       providers: [
         {
           provide: CryptoConfig,

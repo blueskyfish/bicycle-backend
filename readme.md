@@ -1,31 +1,11 @@
 
-![NestJs Backend Starter](logo.png)
+![Bicycle Backend](logo.png)
+
+# Bicycle Backend
+
+> A simple web application for note the bicycle activities and doings (electrical support)
 
 
-# NestJS Backend Starter
-
-> A small nestjs backend with integration of mysql / sqlite
-
-
-## Motivation
-
-* Start with the important things faster, instead of spending time on the project setup first.
-* The advantage of NestJS: It covers many technical aspects like database connection or validation.
-* Some aspects are already integrated:
-  * [OpenApi](OpenApiSpec) is set up
-  * Connection to MySQL database is available. The database is executing in a docker container together with phpMyAdmin.
-  * Use of SQL easily possible
-  * The finished backend with NestJS can be executed in a docker container.
-* Standards are using (MySql + phpMyAdmin) or Sqlite, Node, NestJs, Express, OpenApi, Docker, Docker Compose
-
-## Quote from Nestjs
-
-> Nest ([NestJS](NestJS)) is a framework for building efficient, scalable Node.js server-side applications. It uses
-> progressive JavaScript, is built with and fully supports [TypeScript](Typescript) (yet still enables developers to
-> code in pure JavaScript) and combines elements of OOP (Object Oriented Programming), FP (Functional Programming),
-> and FRP (Functional Reactive Programming).
->
-> *From* <https://docs.nestjs.com/>
 
 
 ## Requirements

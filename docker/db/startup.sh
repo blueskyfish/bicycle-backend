@@ -1,17 +1,15 @@
 #!/bin/sh
 
-# TODO Rename "Starter" to your Short Project Name
-
 if [ -f /app/data/createDB ]; then
-  echo ">>>>>> (Starter) MySQL directory already present, skip creating database from 'sql' directory..."
+  echo ">>>>>> (Bicycle) MySQL directory already present, skip creating database from 'sql' directory..."
 else
-  echo ">>>>>> (Starter) MySQL data directory not found, creating initial DBs from 'sql' directory..."
+  echo ">>>>>> (Bicycle) MySQL data directory not found, creating initial DBs from 'sql' directory..."
 
   mysql_install_db --user=root > /dev/null
 
   if [ "$MYSQL_ROOT_PASSWORD" = "" ]; then
     MYSQL_ROOT_PASSWORD=111111
-    echo ">>>>>> (Starter) MySQL root Password: $MYSQL_ROOT_PASSWORD"
+    echo ">>>>>> (Bicycle) MySQL root Password: $MYSQL_ROOT_PASSWORD"
   fi
 
   MYSQL_DATABASE=${MYSQL_DATABASE:-""}
@@ -36,11 +34,11 @@ UPDATE user SET password=PASSWORD("") WHERE user='root' AND host='localhost';
 EOF
 
   if [ "$MYSQL_DATABASE" != "" ]; then
-    echo ">>>>>> (Starter) Creating database: $MYSQL_DATABASE"
+    echo ">>>>>> (Bicycle) Creating database: $MYSQL_DATABASE"
     echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` CHARACTER SET utf8 COLLATE utf8_general_ci;" >> $tfile
 
     if [ "$MYSQL_USER" != "" ]; then
-      echo ">>>>>> (Starter) Creating user: $MYSQL_USER with password $MYSQL_PASSWORD"
+      echo ">>>>>> (Bicycle) Creating user: $MYSQL_USER with password $MYSQL_PASSWORD"
       echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';" >> $tfile
     fi
 
@@ -57,14 +55,14 @@ EOF
   cat `ls -- /sql/*.sql | sort` > /sql/all.sql
   /usr/bin/mysqld --user=root --bootstrap --verbose=0 < /sql/all.sql
 
-  echo ">>>>>> (Starter) Test database"
-  sed 's/`starter`/`starter-test`/g' /sql/all.sql > /sql/all-test.sql
+  echo ">>>>>> (Bicycle) Test database"
+  sed 's/`Bicycle`/`Bicycle-test`/g' /sql/all.sql > /sql/all-test.sql
   /usr/bin/mysqld --user=root --bootstrap --verbose=0 < /sql/all-test.sql
 
-  echo ">>>>>> (Starter) Finish Test database"
+  echo ">>>>>> (Bicycle) Finish Test database"
 
   if [ ! -f /app/data/createDB ]; then
-    echo ">>>>>> (Starter) create file /app/data/createDB"
+    echo ">>>>>> (Bicycle) create file /app/data/createDB"
     touch /app/data/createDB
   fi
 
@@ -72,5 +70,5 @@ EOF
 fi
 
 # Mysql Server
-echo ">>>>>> (Starter) starts the MySQL database domain with \"root\" and console parameter..."
+echo ">>>>>> (Bicycle) starts the MySQL database domain with \"root\" and console parameter..."
 exec /usr/bin/mysqld --user=root --console

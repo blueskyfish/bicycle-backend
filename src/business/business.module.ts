@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AppRepositoryModule } from '../repository/repository.module';
+import { BikeRepositoryModule } from '../repository/repository.module';
 import { AliveService, SystemService } from './system';
 import { UserService } from './user';
 
@@ -13,7 +13,7 @@ const businessServices: any[] = [
 
 @Module({
   imports: [
-    AppRepositoryModule,
+    BikeRepositoryModule,
   ],
   providers: [
     ...businessServices,
@@ -22,6 +22,5 @@ const businessServices: any[] = [
     ...businessServices,
   ]
 })
-export class AppBusinessModule {
-  // TODO: "App" => Rename the shortcut with your project specifications
+export class BikeBusinessModule {
 }

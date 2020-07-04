@@ -16,6 +16,5 @@ const repositoryServices: any[] = [
     ...repositoryServices,
   ]
 })
-export class AppRepositoryModule {
-  // TODO: "App" => Rename the shortcut with your project specifications
+export class BikeRepositoryModule {
 }

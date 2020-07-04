@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { SystemController } from './system.controller';
-import { AppBusinessModule } from '../business/business.module';
+import { BikeBusinessModule } from '../business/business.module';
 import { LoginController } from './login.controller';
 import { RegisterController } from './register.controller';
 import { UserController } from './user.controller';
@@ -8,7 +8,7 @@ import { UserController } from './user.controller';
 
 @Module({
   imports: [
-    AppBusinessModule,
+    BikeBusinessModule,
   ],
   controllers: [
     SystemController,
@@ -17,6 +17,5 @@ import { UserController } from './user.controller';
     UserController,
   ],
 })
-export class AppControllerModule {
-  // TODO: "App" => Rename the shortcut with your project specifications
+export class BikeControllerModule {
 }
